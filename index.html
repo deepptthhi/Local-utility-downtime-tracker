@@ -2,9 +2,11 @@
 <html lang="en">
 
 <head>
+
     <!-- ===========================================
          META INFORMATION
     ============================================ -->
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -16,22 +18,25 @@
     <!-- ===========================================
          GOOGLE FONTS
     ============================================ -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <!-- ===========================================
          LUCIDE ICONS
     ============================================ -->
+
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <!-- ===========================================
          STYLESHEET
     ============================================ -->
+
     <link rel="stylesheet" href="./css/style.css">
+
 </head>
 
 <body>
@@ -52,18 +57,20 @@
 
             </a>
 
-
             <div class="nav-actions">
 
-                <a href="https://github.com/" 
-                   target="_blank"
-                   rel="noopener noreferrer">
+                <a href="https://github.com/"
+                    target="_blank"
+                    rel="noopener noreferrer">
 
-                   GitHub
+                    GitHub
+
                 </a>
 
                 <a href="#log-outage" class="btn-primary">
+
                     Log Outage
+
                 </a>
 
             </div>
@@ -81,8 +88,132 @@
     <main>
 
         <!-- =======================================
-            OPERATIONS OVERVIEW
-        ======================================= -->
+             HERO SECTION
+        ======================================== -->
+
+        <section id="hero">
+
+            <div class="container hero-container">
+
+                <div class="hero-content">
+
+                    <span class="hero-tag">
+                        📊 Utility Analytics Dashboard
+                    </span>
+
+                    <h1>
+                        Local Utility Downtime Tracker
+                    </h1>
+
+                    <p>
+                        Track, analyze and understand power, internet and water outages using historical trends,
+                        weather insights and interactive dashboards.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#log-outage" class="btn-primary">
+
+                            Log New Outage
+
+                        </a>
+
+                        <a href="#analytics-dashboard" class="btn-secondary">
+
+                            View Analytics
+
+                        </a>
+
+                    </div>
+
+                    <div class="hero-stats">
+
+                        <div class="hero-stat">
+
+                            <h3>24</h3>
+
+                            <p>Active Outages</p>
+
+                        </div>
+
+                        <div class="hero-stat">
+
+                            <h3>15</h3>
+
+                            <p>Reports Today</p>
+
+                        </div>
+
+                        <div class="hero-stat">
+
+                            <h3>98%</h3>
+
+                            <p>Prediction Accuracy</p>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+                </div>
+
+                <div class="hero-preview">
+
+                    <div class="preview-card">
+
+                        <h3>Live Dashboard Preview</h3>
+
+                        <ul>
+
+                            <li>
+
+                                <span>⚡ Power Outages</span>
+
+                                <strong>24</strong>
+
+                            </li>
+
+                            <li>
+
+                                <span>🌐 Internet Outages</span>
+
+                                <strong>15</strong>
+
+                            </li>
+
+                            <li>
+
+                                <span>💧 Water Outages</span>
+
+                                <strong>9</strong>
+
+                            </li>
+
+                            <li>
+
+                                <span>📈 Weekly Trend</span>
+
+                                <strong>↑ 12%</strong>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+            <!-- =======================================
+             OPERATIONS OVERVIEW
+        ======================================== -->
 
         <section id="operations-overview">
 
@@ -92,7 +223,7 @@
 
                     <h2>Operations Overview</h2>
 
-                     <p>
+                    <p>
                         Monitor the current status of utility services and today's outage summary.
                     </p>
 
@@ -110,23 +241,26 @@
 
                             <li>
                                 <span>⚡ Power</span>
-                                <spam class="status stable">
+
+                                <span class="status-badge stable">
                                     🟢 Stable
-                                </spam>
+                                </span>
                             </li>
 
                             <li>
                                 <span>🌐 Internet</span>
-                                <spam class="status warning">
+
+                                <span class="status-badge warning">
                                     🟡 Minor Issues
-                                </spam>
+                                </span>
                             </li>
 
                             <li>
                                 <span>💧 Water</span>
-                                <spam class="status stable">
+
+                                <span class="status-badge stable">
                                     🟢 Stable
-                                </spam>
+                                </span>
                             </li>
 
                         </ul>
@@ -162,12 +296,9 @@
                             </li>
 
                         </ul>
-                    
-
-                
 
                         <p class="last-updated">
-                            Last Updated: Today • 4:30 PM
+                            Last Updated • Today 4:30 PM
                         </p>
 
                     </article>
@@ -181,20 +312,44 @@
 
 
         <!-- =======================================
-             HERO SECTION
-        ======================================== -->
-
-        <section id="hero">
-
-        </section>
-
-
-
-        <!-- =======================================
              QUICK STATISTICS
         ======================================== -->
 
         <section id="quick-stats">
+
+            <div class="container">
+
+                <h2>Quick Statistics</h2>
+
+                <div class="stats-grid">
+
+                    <article class="stat-card">
+                        <h3>⚡</h3>
+                        <h4>24</h4>
+                        <p>Power Outages</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <h3>🌐</h3>
+                        <h4>15</h4>
+                        <p>Internet Outages</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <h3>💧</h3>
+                        <h4>9</h4>
+                        <p>Water Outages</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <h3>⏱</h3>
+                        <h4>54</h4>
+                        <p>Avg Downtime (mins)</p>
+                    </article>
+
+                </div>
+
+            </div>
 
         </section>
 
@@ -206,15 +361,47 @@
 
         <section id="smart-insights">
 
+            <div class="container">
+
+                <h2>Smart Insights</h2>
+
+                <div class="insights-grid">
+
+                    <article class="insight-card">
+                        🌧 Rainfall has increased power outages this week.
+                    </article>
+
+                    <article class="insight-card">
+                        📈 Saturday recorded the highest outage frequency.
+                    </article>
+
+                    <article class="insight-card">
+                        🌐 Internet outages usually follow power failures.
+                    </article>
+
+                </div>
+
+            </div>
+
         </section>
 
 
 
         <!-- =======================================
-             LOG OUTAGE FORM
+             LOG OUTAGE
         ======================================== -->
 
         <section id="log-outage">
+
+            <div class="container">
+
+                <h2>Log a New Outage</h2>
+
+                <p>
+                    Outage form will be added on Day 2.
+                </p>
+
+            </div>
 
         </section>
 
@@ -226,6 +413,16 @@
 
         <section id="recent-outages">
 
+            <div class="container">
+
+                <h2>Recent Outages</h2>
+
+                <p>
+                    Recent outage cards will appear here.
+                </p>
+
+            </div>
+
         </section>
 
 
@@ -235,6 +432,16 @@
         ======================================== -->
 
         <section id="analytics-dashboard">
+
+            <div class="container">
+
+                <h2>Analytics Dashboard</h2>
+
+                <p>
+                    Charts and weather correlation will be implemented on Day 3.
+                </p>
+
+            </div>
 
         </section>
 
@@ -247,6 +454,14 @@
     ============================================ -->
 
     <footer>
+
+        <div class="container">
+
+            <p>
+                © 2026 Local Utility Downtime Tracker • Built with HTML, CSS & JavaScript
+            </p>
+
+        </div>
 
     </footer>
 
