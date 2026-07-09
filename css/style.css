@@ -1,0 +1,187 @@
+/* ==========================================
+   CSS RESET
+========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================================
+   DESIGN SYSTEM
+========================================== */
+
+:root {
+
+    /* Colors */
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+
+    --success: #16a34a;
+    --warning: #f59e0b;
+    --danger: #dc2626;
+
+    --background: #f8fafc;
+    --surface: #ffffff;
+
+    --text: #1e293b;
+    --muted: #64748b;
+
+    --border: #e2e8f0;
+
+    /* Radius */
+
+    --radius: 16px;
+
+    /* Shadow */
+
+    --shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+
+}
+
+/* ==========================================
+   GLOBAL STYLES
+========================================== */
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+body {
+
+    font-family: "Inter", sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    line-height: 1.6;
+
+}
+
+img {
+
+    display: block;
+
+    max-width: 100%;
+
+}
+
+a {
+
+    text-decoration: none;
+
+    color: inherit;
+
+}
+
+.container {
+
+    width: min(1200px, 90%);
+
+    margin-inline: auto;
+
+}
+
+/* ==========================================
+   HEADER
+========================================== */
+
+header {
+
+    background: var(--surface);
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+    box-shadow: var(--shadow);
+
+}
+
+/* ==========================================
+   NAVIGATION
+========================================== */
+
+.navbar {
+
+    width: min(1200px, 90%);
+
+    margin-inline: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 1rem 0;
+
+}
+
+.logo {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: .6rem;
+
+    color: var(--text);
+
+    font-weight: 700;
+
+}
+
+.logo-icon {
+
+    font-size: 1.5rem;
+
+}
+
+.logo h2 {
+
+    font-size: 1.25rem;
+
+}
+
+.nav-actions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 1rem;
+
+}
+
+.nav-actions a {
+
+    font-weight: 500;
+
+}
+
+.btn-primary {
+
+    background: var(--primary);
+
+    color: white;
+
+    padding: .75rem 1.25rem;
+
+    border-radius: 10px;
+
+    transition: 0.3s ease;
+
+}
+
+.btn-primary:hover {
+
+    background: var(--primary-dark);
+
+}
