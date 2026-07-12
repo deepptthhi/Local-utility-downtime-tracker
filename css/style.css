@@ -181,8 +181,10 @@ p{
 }
 
 .nav-links a{
-    font-weight:500;
-    transition:var(--transition);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    transition: var(--transition);
 }
 
 .nav-links a:hover{
@@ -518,8 +520,31 @@ tbody tr:hover{
 }
 
 .empty-state{
+
     text-align:center;
+
     padding:4rem 2rem;
+
+    color:var(--text-secondary);
+
+}
+
+.empty-state h3{
+
+    font-size:1.5rem;
+
+    margin-bottom:.75rem;
+
+}
+
+.empty-state p{
+
+    max-width:450px;
+
+    margin:auto;
+
+    line-height:1.7;
+
 }
 
 .empty-icon{
@@ -647,6 +672,20 @@ tbody tr:hover{
     border-top:1px solid var(--border);
     text-align:center;
     padding:1.5rem 0;
+}
+.footer-copy{
+    margin-bottom: 0.3rem;
+}
+
+.footer-author{
+    margin-top: 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+.footer-author strong{
+    color: var(--primary);
+    font-weight: 700;
 }
 
 /* ==========================================================
@@ -806,7 +845,7 @@ body.dark{
 
 }
 
-/* Header */
+
 
 body.dark .site-header{
 
@@ -814,7 +853,6 @@ body.dark .site-header{
 
 }
 
-/* Body */
 
 body.dark{
 
@@ -822,7 +860,7 @@ body.dark{
 
 }
 
-/* Cards */
+
 
 body.dark .hero-weather-card,
 body.dark .hero-stat,
@@ -842,7 +880,7 @@ body.dark .site-footer{
 
 }
 
-/* Weather small cards */
+
 
 body.dark .weather-item,
 body.dark .weather-summary-grid div{
@@ -851,7 +889,7 @@ body.dark .weather-summary-grid div{
 
 }
 
-/* Table */
+
 
 body.dark thead{
 
@@ -865,7 +903,7 @@ body.dark tbody tr:hover{
 
 }
 
-/* Inputs */
+
 
 body.dark input,
 body.dark textarea,
@@ -886,7 +924,7 @@ body.dark textarea::placeholder{
 
 }
 
-/* Buttons */
+
 
 body.dark .btn-secondary{
 
@@ -912,7 +950,7 @@ body.dark p{
 
 }
 
-/* Links */
+
 
 body.dark a{
 
@@ -920,10 +958,69 @@ body.dark a{
 
 }
 
-/* Footer */
 
 body.dark .footer-bottom{
 
     border-color:var(--border);
 
+}
+
+body,
+.site-header,
+.hero-weather-card,
+.hero-stat,
+.overview-card,
+.stat-card,
+.outage-form,
+.table-wrapper,
+.chart-card,
+.insight-card,
+.site-footer,
+input,
+select,
+textarea,
+button {
+    transition:
+        background-color .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+/* ==========================================================
+   ACTION BUTTONS
+========================================================== */
+
+.action-buttons{
+
+    display:flex;
+    gap:.65rem;
+    align-items:center;
+
+}
+
+.action-btn{
+    background: transparent;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.edit-btn{
+    color:#5B7CFA;
+}
+
+.edit-btn:hover{
+    background:#EEF4FF;
+}
+
+.delete-btn{
+    color:#EF4444;
+}
+
+.delete-btn:hover{
+    background:#FEECEC;
 }

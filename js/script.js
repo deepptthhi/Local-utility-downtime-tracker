@@ -1,7 +1,6 @@
 
 /* ==========================================================
    LOCAL UTILITY DOWNTIME TRACKER
-   SCRIPT PART 1
 ========================================================== */
 
 "use strict";
@@ -46,6 +45,9 @@ let editIndex = null;
 document.addEventListener("DOMContentLoaded", init);
 
 function init() {
+
+    
+
     renderTable();
     updateStatistics();
     attachEvents();
@@ -86,42 +88,63 @@ function attachEvents() {
    FORM
 ========================================================== */
 
-function handleSubmit(e){
+async function handleSubmit(e){
 
     e.preventDefault();
+    const saveButton = outageForm.querySelector('button[type="submit"]');
 
-    const data = getFormData();
+    saveButton.disabled = true;
+    saveButton.textContent = "Saving...";
+    
+    try{ 
+        const data = getFormData();
 
-    if(!validateForm(data)) return;
+        if(!validateForm(data)) return;
 
-    data.duration = calculateDuration(
-        data.startTime,
-        data.endTime
-    );
+        data.duration = calculateDuration(
+            data.startTime,
+            data.endTime
+        );
 
-    if(editIndex === null){
+        const weather = await fetchWeather(data.city, data.area);
 
-        outages.push(data);
+        if (weather) {
+            data.weather = `${weather.temperature}°C | ${weather.rain} mm`;
+        } else {
+            data.weather = "--";
+        }
 
-        showToast("Outage saved successfully");
+        if(editIndex === null){
 
-    }else{
+            outages.push(data);
 
-        outages[editIndex] = data;
+            showToast("Outage saved successfully");
 
-        editIndex = null;
+        }else{
 
-        showToast("Outage updated");
+            outages[editIndex] = data;
 
+            editIndex = null;
+
+            showToast("Outage updated");
+
+        }
+
+        saveOutages();
+
+        renderTable();
+
+        updateStatistics();
+
+        outageForm.reset();
     }
 
-    saveOutages();
+    finally{
 
-    renderTable();
+        saveButton.disabled = false;
+        saveButton.textContent = "Save Outage";
 
-    updateStatistics();
-
-    outageForm.reset();
+    }    
 
 }
 
@@ -236,6 +259,8 @@ function renderTable(){
     const keyword = searchInput.value.toLowerCase();
     const utilityFilter = filterUtility.value;
 
+   
+
     outageTableBody.innerHTML = "";
 
     const filtered = outages.filter(outage => {
@@ -254,6 +279,8 @@ function renderTable(){
     });
 
     const emptyState = document.getElementById("emptyState");
+
+    
 
     if(filtered.length === 0){
 
@@ -275,13 +302,33 @@ function renderTable(){
             <td>${outage.duration} mins</td>
             <td>${outage.weather ?? "--"}</td>
             <td>
-                <button onclick="editOutage(${index})">✏️</button>
-                <button onclick="deleteOutage(${index})">🗑️</button>
+                <div class="action-buttons">
+
+                    <button
+                        class="action-btn edit-btn"
+                        onclick="editOutage(${index})"
+                        title="Edit Outage">
+
+                        <i data-lucide="square-pen"></i>
+
+                    </button>
+
+                    <button
+                        class="action-btn delete-btn"
+                        onclick="deleteOutage(${index})"
+                        title="Delete Outage">
+
+                        <i data-lucide="trash-2"></i>
+
+                    </button>
+
+                </div>
             </td>
         `;
-
+        
+        
         outageTableBody.appendChild(row);
-
+        lucide.createIcons();
     });
 
 }
@@ -495,49 +542,6 @@ function updateWeatherCard(current){
 
 }
 
-/* ==========================================================
-   ATTACH WEATHER TO NEW OUTAGE
-========================================================== */
-
-const originalHandleSubmit = handleSubmit;
-
-handleSubmit = async function(e){
-
-    e.preventDefault();
-
-    const data = getFormData();
-
-    if(!validateForm(data)) return;
-
-    data.duration = calculateDuration(
-        data.startTime,
-        data.endTime
-    );
-
-    const weather = await fetchWeather(data.city, data.area);
-
-    if(weather){
-        data.weather =
-            `${weather.temperature}°C | ${weather.rain} mm`;
-    }else{
-        data.weather = "--";
-    }
-
-    if(editIndex === null){
-        outages.push(data);
-        showToast("Outage saved");
-    }else{
-        outages[editIndex]=data;
-        editIndex=null;
-        showToast("Outage updated");
-    }
-
-    saveOutages();
-    renderTable();
-    updateStatistics();
-    outageForm.reset();
-
-};
 
 /* ==========================================================
    CHARTS
@@ -767,4 +771,3 @@ themeToggle.addEventListener("click", () => {
 
 });
 
-init();
