@@ -543,6 +543,7 @@ tbody tr:hover{
 
 }
 
+
 /* ==========================================================
    DASHBOARD
 ========================================================== */
@@ -785,4 +786,144 @@ tbody tr:hover{
     }
 
 }
+/* ==========================================
+   DARK MODE
+========================================== */
 
+body.dark{
+
+    --background:#0F172A;
+    --surface:#1E293B;
+    --surface-alt:#334155;
+
+    --text:#F8FAFC;
+    --muted:#CBD5E1;
+
+    --border:#475569;
+
+    background:var(--background);
+    color:var(--text);
+
+}
+
+/* Header */
+
+body.dark .site-header{
+
+    background:rgba(30,41,59,.95);
+
+}
+
+/* Body */
+
+body.dark{
+
+    transition:.35s;
+
+}
+
+/* Cards */
+
+body.dark .hero-weather-card,
+body.dark .hero-stat,
+body.dark .overview-card,
+body.dark .stat-card,
+body.dark .outage-form,
+body.dark .table-wrapper,
+body.dark .chart-card,
+body.dark .insight-card,
+body.dark .site-footer{
+
+    background:var(--surface);
+
+    color:var(--text);
+
+    border-color:var(--border);
+
+}
+
+/* Weather small cards */
+
+body.dark .weather-item,
+body.dark .weather-summary-grid div{
+
+    background:var(--surface-alt);
+
+}
+
+/* Table */
+
+body.dark thead{
+
+    background:#243447;
+
+}
+
+body.dark tbody tr:hover{
+
+    background:#243447;
+
+}
+
+/* Inputs */
+
+body.dark input,
+body.dark textarea,
+body.dark select{
+
+    background:var(--surface-alt);
+
+    color:var(--text);
+
+    border:1px solid var(--border);
+
+}
+
+body.dark input::placeholder,
+body.dark textarea::placeholder{
+
+    color:var(--muted);
+
+}
+
+/* Buttons */
+
+body.dark .btn-secondary{
+
+    background:transparent;
+
+    color:var(--text);
+
+    border:1px solid var(--border);
+
+}
+
+body.dark .btn-secondary:hover{
+
+    background:var(--surface-alt);
+
+}
+
+/* Paragraphs */
+
+body.dark p{
+
+    color:var(--muted);
+
+}
+
+/* Links */
+
+body.dark a{
+
+    color:var(--text);
+
+}
+
+/* Footer */
+
+body.dark .footer-bottom{
+
+    border-color:var(--border);
+
+}
