@@ -1,514 +1,547 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <!-- ===========================================
-         META INFORMATION
-    ============================================ -->
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-        content="Track and analyze power, internet, and water outages using weather insights and interactive dashboards.">
+    <meta name="description" content="Track power, internet and water outages with weather insights.">
+    <meta name="theme-color" content="#5B7CFA">
 
     <title>Local Utility Downtime Tracker</title>
-
-    <!-- ===========================================
-         GOOGLE FONTS
-    ============================================ -->
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <!-- ===========================================
-         LUCIDE ICONS
-    ============================================ -->
-
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 
-    <!-- ===========================================
-         STYLESHEET
-    ============================================ -->
-
     <link rel="stylesheet" href="./css/style.css">
-
 </head>
 
 <body>
 
-    <!-- ===========================================
-         HEADER
-    ============================================ -->
+<header class="site-header">
 
-    <header>
+    <nav class="navbar container" aria-label="Primary Navigation">
 
-        <nav class="navbar" aria-label="Main Navigation">
-
-            <a href="#" class="logo">
-
-                <span class="logo-icon">⚡</span>
-
+        <a href="#" class="logo" aria-label="Home">
+            <span class="logo-icon">⚡</span>
+            <div>
                 <h2>Utility Tracker</h2>
+                <small>Downtime Analytics</small>
+            </div>
+        </a>
 
+        <ul class="nav-links">
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#log-outage">Report</a></li>
+            <li><a href="#dashboard">Analytics</a></li>
+            <li><a href="#recent-outages">History</a></li>
+        </ul>
+
+        <div class="nav-actions">
+            <button id="themeToggle" class="icon-btn" aria-label="Toggle theme">
+                <i data-lucide="moon-star"></i>
+            </button>
+
+            <a href="#log-outage" class="btn-primary">
+                Report Outage
             </a>
+        </div>
 
-            <div class="nav-actions">
+    </nav>
 
-                <a href="https://github.com/"
-                    target="_blank"
-                    rel="noopener noreferrer">
+</header>
 
-                    GitHub
+<main>
 
-                </a>
+<section id="hero">
 
-                <a href="#log-outage" class="btn-primary">
+    <div class="container hero-container">
 
-                    Log Outage
+        <div class="hero-content">
 
-                </a>
+            <span class="hero-tag">
+                Utility Intelligence Dashboard
+            </span>
 
-            </div>
-
-        </nav>
-
-    </header>
-
-
-
-    <!-- ===========================================
-         MAIN CONTENT
-    ============================================ -->
-
-    <main>
-
-        <!-- =======================================
-             HERO SECTION
-        ======================================== -->
-
-        <section id="hero">
-
-            <div class="container hero-container">
-
-                <div class="hero-content">
-
-                    <span class="hero-tag">
-                        📊 Utility Analytics Dashboard
-                    </span>
-
-                    <h1>
-                        Local Utility Downtime Tracker
-                    </h1>
-
-                    <p>
-                        Track, analyze and understand power, internet and water outages using historical trends,
-                        weather insights and interactive dashboards.
-                    </p>
-
-                    <div class="hero-buttons">
-
-                        <a href="#log-outage" class="btn-primary">
-
-                            Log New Outage
-
-                        </a>
-
-                        <a href="#analytics-dashboard" class="btn-secondary">
-
-                            View Analytics
-
-                        </a>
-
-                    </div>
-
-                    <div class="hero-stats">
-
-                        <div class="hero-stat">
-
-                            <h3>24</h3>
-
-                            <p>Active Outages</p>
-
-                        </div>
-
-                        <div class="hero-stat">
-
-                            <h3>15</h3>
-
-                            <p>Reports Today</p>
-
-                        </div>
-
-                        <div class="hero-stat">
-
-                            <h3>98%</h3>
-
-                            <p>Prediction Accuracy</p>
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
-            </div>
-
-                </div>
-
-                <div class="hero-preview">
-
-                <div class="preview-card">
-
-                    <h3>📊 Live Dashboard Preview</h3>
-
-                    <!-- Power -->
-
-                    <div class="preview-item">
-
-                        <div class="preview-top">
-
-                            <span>⚡ Power</span>
-
-                            <strong>24</strong>
-
-                        </div>
-
-                    <div class="progress-bar">
-
-                        <div class="progress power"></div>
-
-                    </div>
-
-                </div>
-
-                <!-- Internet -->
-
-                <div class="preview-item">
-
-                    <div class="preview-top">
-
-                        <span>🌐 Internet</span>
-
-                        <strong>15</strong>
-
-                    </div>
-
-                    <div class="progress-bar">
-
-                        <div class="progress internet"></div>
-
-                    </div>
-
-                </div>
-
-                <!-- Water -->
-
-                <div class="preview-item">
-
-                    <div class="preview-top">
-
-                        <span>💧 Water</span>
-
-                        <strong>9</strong>
-
-                    </div>
-
-                <div class="progress-bar">
-
-                    <div class="progress water"></div>
-
-                </div>
-
-            </div>
-
-            <!-- Overall Health -->
-
-            <div class="system-health">
-
-                <span>System Health</span>
-
-                <strong>98%</strong>
-
-            </div>
-
-        </div> 
-
-                </div>
-
-            </div>
-
-        </section>
-
-            <!-- =======================================
-             OPERATIONS OVERVIEW
-        ======================================== -->
-
-        <section id="operations-overview">
-
-            <div class="container">
-
-                <div class="overview-header">
-
-                    <h2>Operations Overview</h2>
-
-                    <p>
-                        Monitor the current status of utility services and today's outage summary.
-                    </p>
-
-                </div>
-
-                <div class="overview-grid">
-
-                    <!-- System Status -->
-
-                    <article class="overview-card">
-
-                        <h3>System Status</h3>
-
-                        <ul>
-
-                            <li>
-                                <span>⚡ Power</span>
-
-                                <span class="status-badge stable">
-                                    🟢 Stable
-                                </span>
-                            </li>
-
-                            <li>
-                                <span>🌐 Internet</span>
-
-                                <span class="status-badge warning">
-                                    🟡 Minor Issues
-                                </span>
-                            </li>
-
-                            <li>
-                                <span>💧 Water</span>
-
-                                <span class="status-badge stable">
-                                    🟢 Stable
-                                </span>
-                            </li>
-
-                        </ul>
-
-                    </article>
-
-                    <!-- Today's Summary -->
-
-                    <article class="overview-card">
-
-                        <h3>Today's Summary</h3>
-
-                        <ul>
-
-                            <li>
-                                <span>Power Outages</span>
-                                <strong>12</strong>
-                            </li>
-
-                            <li>
-                                <span>Internet Outages</span>
-                                <strong>8</strong>
-                            </li>
-
-                            <li>
-                                <span>Water Outages</span>
-                                <strong>4</strong>
-                            </li>
-
-                            <li>
-                                <span>Average Downtime</span>
-                                <strong>54 mins</strong>
-                            </li>
-
-                        </ul>
-
-                        <p class="last-updated">
-                            Last Updated • Today 4:30 PM
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =======================================
-             QUICK STATISTICS
-        ======================================== -->
-
-        <section id="quick-stats">
-
-            <div class="container">
-
-                <h2>Quick Statistics</h2>
-
-                <div class="stats-grid">
-
-                    <article class="stat-card">
-                        <h3>⚡</h3>
-                        <h4>24</h4>
-                        <p>Power Outages</p>
-                    </article>
-
-                    <article class="stat-card">
-                        <h3>🌐</h3>
-                        <h4>15</h4>
-                        <p>Internet Outages</p>
-                    </article>
-
-                    <article class="stat-card">
-                        <h3>💧</h3>
-                        <h4>9</h4>
-                        <p>Water Outages</p>
-                    </article>
-
-                    <article class="stat-card">
-                        <h3>⏱</h3>
-                        <h4>54</h4>
-                        <p>Avg Downtime (mins)</p>
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =======================================
-             SMART INSIGHTS
-        ======================================== -->
-
-        <section id="smart-insights">
-
-            <div class="container">
-
-                <h2>Smart Insights</h2>
-
-                <div class="insights-grid">
-
-                    <article class="insight-card">
-                        🌧 Rainfall has increased power outages this week.
-                    </article>
-
-                    <article class="insight-card">
-                        📈 Saturday recorded the highest outage frequency.
-                    </article>
-
-                    <article class="insight-card">
-                        🌐 Internet outages usually follow power failures.
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =======================================
-             LOG OUTAGE
-        ======================================== -->
-
-        <section id="log-outage">
-
-            <div class="container">
-
-                <h2>Log a New Outage</h2>
-
-                <p>
-                    Outage form will be added on Day 2.
-                </p>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =======================================
-             RECENT OUTAGES
-        ======================================== -->
-
-        <section id="recent-outages">
-
-            <div class="container">
-
-                <h2>Recent Outages</h2>
-
-                <p>
-                    Recent outage cards will appear here.
-                </p>
-
-            </div>
-
-        </section>
-
-
-
-        <!-- =======================================
-             ANALYTICS DASHBOARD
-        ======================================== -->
-
-        <section id="analytics-dashboard">
-
-            <div class="container">
-
-                <h2>Analytics Dashboard</h2>
-
-                <p>
-                    Charts and weather correlation will be implemented on Day 3.
-                </p>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-
-    <!-- ===========================================
-         FOOTER
-    ============================================ -->
-
-    <footer>
-
-        <div class="container">
+            <h1>
+                Track Utility Downtime with
+                <span>Weather Intelligence</span>
+            </h1>
 
             <p>
-                © 2026 Local Utility Downtime Tracker • Built with HTML, CSS & JavaScript
+                Log power, internet and water outages, automatically correlate
+                them with weather conditions using Open‑Meteo, visualize trends
+                and identify cascade failures.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#log-outage" class="btn-primary">
+                    + Report Outage
+                </a>
+
+                <a href="#dashboard" class="btn-secondary">
+                    View Dashboard
+                </a>
+
+            </div>
+
+            <div class="hero-stats">
+
+                <article class="hero-stat">
+                    <h3 id="totalLogs">0</h3>
+                    <p>Total Logs</p>
+                </article>
+
+                <article class="hero-stat">
+                    <h3 id="activeOutages">0</h3>
+                    <p>Active Outages</p>
+                </article>
+
+                <article class="hero-stat">
+                    <h3 id="averageDuration">0m</h3>
+                    <p>Avg Duration</p>
+                </article>
+
+            </div>
+
+        </div>
+
+        <aside class="hero-weather-card">
+
+            <div class="weather-header">
+                <h3>Live Weather</h3>
+                <span id="weatherUpdated">Updating...</span>
+            </div>
+
+            <div class="weather-icon">
+                ☀️
+            </div>
+
+            <h2 id="weatherTemp">--°C</h2>
+
+            <p id="weatherCondition">
+                Waiting for weather...
+            </p>
+
+            <div class="weather-grid">
+
+                <div class="weather-item">
+                    <span>💨 Wind</span>
+                    <strong id="weatherWind">-- km/h</strong>
+                </div>
+
+                <div class="weather-item">
+                    <span>🌧 Rain</span>
+                    <strong id="weatherRain">-- mm</strong>
+                </div>
+
+            </div>
+
+        </aside>
+
+    </div>
+
+</section>
+
+<section id="overview">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-tag">
+                Overview
+            </span>
+
+            <h2>
+                Current Utility Status
+            </h2>
+
+            <p>
+                Monitor the operational status of essential utilities.
             </p>
 
         </div>
 
-    </footer>
+        <div class="overview-grid">
 
+            <article class="overview-card power">
+                <h3>⚡ Power</h3>
+                <span class="status online">Operational</span>
+                <p>No major issues reported.</p>
+            </article>
 
+            <article class="overview-card internet">
+                <h3>🌐 Internet</h3>
+                <span class="status warning">Minor Issues</span>
+                <p>Intermittent outages in selected areas.</p>
+            </article>
 
-    <!-- ===========================================
-         JAVASCRIPT
-    ============================================ -->
+            <article class="overview-card water">
+                <h3>💧 Water</h3>
+                <span class="status online">Operational</span>
+                <p>Supply running normally.</p>
+            </article>
 
-    <script src="./js/script.js"></script>
+        </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="quick-stats">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-tag">Statistics</span>
+
+            <h2>Quick Statistics</h2>
+
+            <p>Live outage metrics updated from your saved outage logs.</p>
+
+        </div>
+
+        <div class="stats-grid">
+
+            <article class="stat-card">
+                <span>⚡</span>
+                <h3 id="powerCount">0</h3>
+                <p>Power Outages</p>
+            </article>
+
+            <article class="stat-card">
+                <span>🌐</span>
+                <h3 id="internetCount">0</h3>
+                <p>Internet Outages</p>
+            </article>
+
+            <article class="stat-card">
+                <span>💧</span>
+                <h3 id="waterCount">0</h3>
+                <p>Water Outages</p>
+            </article>
+
+            <article class="stat-card">
+                <span>⏱</span>
+                <h3 id="avgDowntime">0 min</h3>
+                <p>Average Downtime</p>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="log-outage">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-tag">Report</span>
+
+            <h2>Report a New Outage</h2>
+
+            <p>Fill in the details below. Weather information will be attached automatically.</p>
+
+        </div>
+
+        <form id="outageForm" class="outage-form">
+
+            <div class="form-grid">
+
+                <div class="form-group">
+                    <label for="utility">Utility *</label>
+                    <select id="utility" required>
+                        <option value="">Select Utility</option>
+                        <option value="power">⚡ Power</option>
+                        <option value="internet">🌐 Internet</option>
+                        <option value="water">💧 Water</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="city">City *</label>
+                    <input type="text" id="city" placeholder="Bengaluru" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="area">Area *</label>
+                    <input type="text" id="area" placeholder="JP Nagar" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="severity">Severity *</label>
+                    <select id="severity" required>
+                        <option value="">Choose</option>
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="startTime">Start Time *</label>
+                    <input type="datetime-local" id="startTime" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="endTime">End Time *</label>
+                    <input type="datetime-local" id="endTime" required>
+                </div>
+
+            </div>
+
+            <div class="form-group full-width">
+                <label for="notes">Notes</label>
+                <textarea id="notes" rows="5" placeholder="Describe what happened..."></textarea>
+            </div>
+
+            <div class="form-actions">
+
+                <button type="button" id="logNow" class="btn-secondary">
+                    Log It Now
+                </button>
+
+                <button type="submit" class="btn-primary">
+                    Save Outage
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+
+<section id="recent-outages">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-tag">History</span>
+
+            <h2>Recent Outages</h2>
+
+            <p>Search, edit and manage all previously logged outages.</p>
+
+        </div>
+
+        <div class="table-toolbar">
+
+            <input
+                type="search"
+                id="searchInput"
+                placeholder="Search by city, area or utility">
+
+            <select id="filterUtility">
+                <option value="all">All Utilities</option>
+                <option value="power">Power</option>
+                <option value="internet">Internet</option>
+                <option value="water">Water</option>
+            </select>
+
+        </div>
+
+        <div class="table-wrapper">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>Utility</th>
+                        <th>City</th>
+                        <th>Area</th>
+                        <th>Duration</th>
+                        <th>Weather</th>
+                        <th>Actions</th>
+                    </tr>
+
+                </thead>
+
+                <tbody id="outageTableBody">
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <div id="emptyState" class="empty-state">
+
+            <div class="empty-icon">📡</div>
+
+            <h3>No Outages Logged Yet</h3>
+
+            <p>Start by reporting your first utility outage.</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="dashboard">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-tag">Analytics</span>
+
+            <h2>Analytics Dashboard</h2>
+
+            <p>Visualize outage patterns and weather correlations.</p>
+
+        </div>
+
+        <div class="dashboard-grid">
+
+            <article class="chart-card">
+                <h3>Utility Distribution</h3>
+                <canvas id="utilityChart"></canvas>
+            </article>
+
+            <article class="chart-card">
+                <h3>Weekly Trend</h3>
+                <canvas id="weeklyChart"></canvas>
+            </article>
+
+            <article class="chart-card">
+                <h3>Hourly Trend</h3>
+                <canvas id="hourlyChart"></canvas>
+            </article>
+
+            <article class="chart-card weather-summary">
+                <h3>Weather Summary</h3>
+
+                <div class="weather-summary-grid">
+
+                    <div>
+                        <span>Temperature</span>
+                        <strong id="summaryTemp">--°C</strong>
+                    </div>
+
+                    <div>
+                        <span>Wind</span>
+                        <strong id="summaryWind">-- km/h</strong>
+                    </div>
+
+                    <div>
+                        <span>Rain</span>
+                        <strong id="summaryRain">-- mm</strong>
+                    </div>
+
+                    <div>
+                        <span>Condition</span>
+                        <strong id="summaryCondition">--</strong>
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="smart-insights">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-tag">Insights</span>
+
+            <h2>Smart Insights</h2>
+
+            <p>Automatically generated insights from outage history.</p>
+
+        </div>
+
+        <div id="insightsContainer" class="insights-grid">
+
+            <article class="insight-card">
+                <h3>📈 Trends</h3>
+                <p>Insights will appear after outage logs are added.</p>
+            </article>
+
+            <article class="insight-card">
+                <h3>⚡ Cascade Detection</h3>
+                <p>Power-triggered internet and water outages will be highlighted.</p>
+            </article>
+
+            <article class="insight-card">
+                <h3>🌦 Weather Correlation</h3>
+                <p>Weather impact will be calculated using Open-Meteo data.</p>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer class="site-footer">
+
+    <div class="container footer-content">
+
+        <div>
+
+            <h3>⚡ Local Utility Downtime Tracker</h3>
+
+            <p>
+                Track outages, analyze trends and understand how weather
+                affects everyday utility services.
+            </p>
+
+        </div>
+
+        <div class="footer-links">
+
+            <a href="#hero">Home</a>
+            <a href="#log-outage">Report</a>
+            <a href="#dashboard">Analytics</a>
+
+        </div>
+
+    </div>
+
+    <div class="container footer-bottom">
+
+        <p>
+            © 2026 Local Utility Downtime Tracker • Built with HTML, CSS & JavaScript
+        </p>
+
+    </div>
+
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script src="./js/script.js"></script>
+
+<script>
+    lucide.createIcons();
+</script>
 
 </body>
-
 </html>
 
